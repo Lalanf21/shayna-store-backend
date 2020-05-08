@@ -13,6 +13,4 @@
 
 Route::get('/', 'DashboardController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['register' => false]);
