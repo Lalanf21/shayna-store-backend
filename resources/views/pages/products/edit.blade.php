@@ -16,7 +16,6 @@
                         Nama barang
                     </label>
                     <input type="text" name="name" value="{{ old('name') ? old('name') : $item->name }}" class="form-control @error('name') is-invalid @enderror" />
-
                     @error('name')
                         <div class="text-muted">{{ $message }}</div>
                     @enderror
@@ -26,7 +25,6 @@
                         Type barang
                     </label>
                     <input type="text" name="type" value="{{ old('type') ? old('type') : $item->type }}" class="form-control @error('type') is-invalid @enderror" />
-
                     @error('type')
                         <div class="text-muted">{{ $message }}</div>
                     @enderror
@@ -45,7 +43,6 @@
                         Harga barang
                     </label>
                     <input type="number" name="price" value="{{ old('price') ? old('price') : $item->price }}" class="form-control @error('price') is-invalid @enderror" />
-
                     @error('price')
                     <div class="text-muted">{{ $message }}</div>
                     @enderror
@@ -55,7 +52,6 @@
                         quantity barang
                     </label>
                     <input type="number" name="quantity" value="{{ old('quantity') ? old('quantity') : $item->quantity }}" class="form-control @error('quantity') is-invalid @enderror" />
-
                     @error('quantity')
                     <div class="text-muted">{{ $message }}</div>
                     @enderror

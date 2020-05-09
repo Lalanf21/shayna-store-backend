@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\http\Requests\ProductRequest;
+
 use Illuminate\Support\Str;
+use Illuminate\http\Request;
+
 use App\model\Product;
+use App\model\ProductGallery;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function index()
     {
@@ -60,6 +68,22 @@ class ProductController extends Controller
     {
         $item = Product::findOrFail($id);
         $item->delete();
+        
+        ProductGallery::where('products_id', $id)->delete();
+        
         return redirect()->route('products.index')->with('status', 'Barang berhasil di hapus !');
+    }
+
+    public function gallery(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $items = ProductGallery::with('product')
+            ->where('products_id', $id)
+            ->get();
+
+        return view('pages.product-gallery.gallery', [
+            'product' => $product,
+            'items' => $items
+        ]);
     }
 }
