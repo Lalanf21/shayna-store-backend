@@ -38,7 +38,7 @@
                                     <td>
                                         <img src="{{ url($item->photo) }}">
                                     </td>
-                                    <td>{{ $item->is_default ? 'ya' : 'tidakx' }}</td>
+                                    <td>{{ $item->is_default ? 'ya' : 'tidak' }}</td>
                                     <td>
                                         <form action="{{ route('product-galleries.destroy', $item->id) }}" method="post" class="d-inline">
                                             @csrf

@@ -16,5 +16,9 @@ Route::get('/', 'DashboardController@index')->name('dashboard');
 Auth::routes(['register' => false]);
 
 Route::get('products/{id}/gallery','ProductController@gallery')->name('products.gallery');
+Route::get('transaction/{id}/set-status','TransactionController@setStatus')->name('transaction.status');
+
+
 Route::resource('products', 'ProductController');
 Route::resource('product-galleries', 'ProductGalleryController');
+Route::resource('transaction', 'TransactionController');

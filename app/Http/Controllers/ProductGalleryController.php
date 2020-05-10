@@ -62,16 +62,4 @@ class ProductGalleryController extends Controller
         return redirect()->route('product-galleries.index')->with('status', 'Foto berhasil di hapus !');
     }
 
-    public function gallery(Request $request, $id)
-    {
-        $product = Product::findOrFail($id);
-        $items = ProductGallery::with('product')
-            ->where('products_id', $id)
-            ->get();
-
-        return view('pages.product-gallery.gallery',[
-            'product' => $product,
-            'items' => $items
-        ]);
-    }
 }

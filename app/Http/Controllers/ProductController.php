@@ -34,7 +34,7 @@ class ProductController extends Controller
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
-        // dd($data);
+        dd($request);
         Product::create($data);
         return redirect()->route('products.index')->with('status','Barang berhasil di tambahkan !');
     }
